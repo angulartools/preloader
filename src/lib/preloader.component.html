@@ -1,0 +1,22 @@
+<!-- preloader -->
+@if (preloaderService.display) {
+    <div>
+      @if (isLoading | async) {
+        <div class="preloader">
+          <div class="status">
+            <div class="spinner-border avatar-sm mat-primary-text m-2" role="status"></div>
+            <div class="text-muted text-center">{{preloaderService.message !== null ? preloaderService.message : message}}</div>
+          </div>
+        </div>
+      }
+      @if (display) {
+        <div class="preloader">
+          <div class="status">
+            <div class="spinner-border avatar-sm mat-primary-text m-2" role="status"></div>
+            <div class="text-muted text-center">{{preloaderService.message !== null ? preloaderService.message : message}}</div>
+          </div>
+        </div>
+      }
+    </div>
+  }
+  
