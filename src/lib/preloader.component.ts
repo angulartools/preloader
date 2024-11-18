@@ -12,7 +12,6 @@ export class PreloaderComponent {
   @Input() display: boolean;
 
   isLoading;
-  message = '';
 
   constructor(public preloaderService: PreloaderService) {
     this.isLoading = this.preloaderService.isLoading;
