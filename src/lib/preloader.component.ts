@@ -3,10 +3,9 @@ import { PreloaderService } from './preloader.service';
 import { AsyncPipe } from '@angular/common';
 
 @Component({
-  selector: 'lib-preloader',
-  templateUrl: './preloader.component.html',
-  standalone: true,
-  imports: [AsyncPipe]
+    selector: 'lib-preloader',
+    templateUrl: './preloader.component.html',
+    imports: [AsyncPipe]
 })
 export class PreloaderComponent {
   @Input() display: boolean;
