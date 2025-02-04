@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslationService } from '@angulartoolsdr/translation';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({providedIn: 'root'})
@@ -10,7 +10,7 @@ export class PreloaderService {
   isLoading = new BehaviorSubject<boolean>(false);
   message;
 
-  translate = inject(TranslateService);
+  translate = inject(TranslationService);
 
   constructor() {
     this.message = this.translate.instant('CARREGANDO');
