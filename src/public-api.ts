@@ -3,4 +3,4 @@
  */
 
 export * from './lib/preloader.service';
-export * from './lib/preloader.component';
+export * from './lib/preloader';

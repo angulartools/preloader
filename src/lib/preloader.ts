@@ -4,10 +4,10 @@ import { AsyncPipe } from '@angular/common';
 
 @Component({
     selector: 'lib-preloader',
-    templateUrl: './preloader.component.html',
+    templateUrl: './preloader.html',
     imports: [AsyncPipe]
 })
-export class PreloaderComponent {
+export class Preloader {
   @Input() display: boolean;
 
   isLoading;
