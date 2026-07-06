@@ -1,29 +1,39 @@
-import { inject, Injectable } from '@angular/core';
+import { inject, Service, signal, computed } from '@angular/core';
 import { TranslationService } from '@angulartoolsdr/translation';
-import { BehaviorSubject } from 'rxjs';
 
-@Injectable({providedIn: 'root'})
-
+@Service()
 export class PreloaderService {
 
-  display = true;
-  isLoading = new BehaviorSubject<boolean>(false);
-  message;
+  private loadingSignal = signal(false);
+  private customMessage = signal<string | null>(null);
 
-  translate = inject(TranslationService);
+  display = signal(true);
 
-  constructor() {
-    this.message = this.translate.instant('CARREGANDO');
-  }
+  isLoading = this.loadingSignal.asReadonly();
 
-  show(message = null) {
-    this.isLoading.next(true);
-    if (message !== null) {
-      this.message = message;
+  private translate = inject(TranslationService);
+
+  message = computed(() =>
+    this.customMessage() ??
+    this.translate.instant('CARREGANDO')
+  );
+
+
+  show(message?: string): void {
+
+    if (message) {
+      this.customMessage.set(message);
     }
+
+    this.loadingSignal.set(true);
   }
-  hide() {
-    this.isLoading.next(false);
-    this.message = this.translate.instant('CARREGANDO');
+
+
+  hide(): void {
+
+    this.loadingSignal.set(false);
+
+    this.customMessage.set(null);
   }
+
 }

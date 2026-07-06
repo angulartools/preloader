@@ -1,0 +1,54 @@
+.preloader {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+.status {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+
+.preloader-spinner {
+	display: block;
+
+	width: 36px !important;
+	height: 36px !important;
+
+	min-width: 36px;
+	min-height: 36px;
+
+	flex: 0 0 36px;
+
+	aspect-ratio: 1 / 1;
+
+	box-sizing: border-box;
+
+	border-radius: 50%;
+
+	border-width: 4px;
+	border-style: solid;
+
+	border-color: rgba(0, 0, 0, .12);
+	border-top-color: var(--theme-primary-300);
+
+	animation: preloader-spin .8s linear infinite;
+
+	margin-bottom: 16px;
+}
+
+
+@keyframes preloader-spin {
+
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
+
+}

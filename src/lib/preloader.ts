@@ -1,18 +1,16 @@
-import { Component, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input, inject } from '@angular/core';
 import { PreloaderService } from './preloader.service';
-import { AsyncPipe } from '@angular/common';
 
 @Component({
-    selector: 'lib-preloader',
-    templateUrl: './preloader.html',
-    imports: [AsyncPipe]
+  selector: 'lib-preloader',
+  templateUrl: './preloader.html',
+  styleUrls: ['./preloader.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Preloader {
-  @Input() display: boolean;
 
-  isLoading;
+  display = input<boolean>(true);
 
-  constructor(public preloaderService: PreloaderService) {
-    this.isLoading = this.preloaderService.isLoading;
-  }
+  preloaderService = inject(PreloaderService);
+
 }
